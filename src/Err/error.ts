@@ -17,7 +17,6 @@ const handleErros = (
   _: NextFunction
 ) => {
   if (err instanceof AppError) {
-    console.log(err);
     return res.status(err.statusCode).json({
       message: err.message,
     });

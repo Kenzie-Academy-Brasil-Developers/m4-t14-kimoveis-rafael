@@ -2,7 +2,7 @@ import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
 import { ILogin, Repo } from "../../Interfaces";
 import { compare } from "bcryptjs";
-import { AppError } from "../../Err/error";
+import { AppError } from "../../err/error";
 import jwt from "jsonwebtoken";
 
 const LoginService = async (data: ILogin): Promise<string> => {
@@ -15,11 +15,11 @@ const LoginService = async (data: ILogin): Promise<string> => {
   });
 
   if (!oldUser) {
-    throw new AppError("Wrong email/password", 401);
+    throw new AppError("Invalid credentials", 401);
   }
 
   if (oldUser.deletedAt) {
-    throw new AppError("Wrong email/password", 401);
+    throw new AppError("Invalid credentials", 401);
   }
 
   const password: string = data.password;
@@ -27,12 +27,13 @@ const LoginService = async (data: ILogin): Promise<string> => {
   const comparePassWord: boolean = await compare(password, oldUser.password!);
 
   if (!comparePassWord) {
-    throw new AppError("Wrong email/password", 401);
+    throw new AppError("Invalid credentials", 401);
   }
 
   const token: string = jwt.sign(
     {
       admin: oldUser.admin,
+      email: oldUser.email,
     },
     process.env.SECRET_KEY!,
     {

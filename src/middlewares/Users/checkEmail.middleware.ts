@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
-import { AppError } from "../../Err/error";
+import { AppError } from "../../err/error";
 
 const CheckEmailMiddleware = async (
   req: Request,
@@ -12,14 +12,16 @@ const CheckEmailMiddleware = async (
   const UseRepository: Repository<User> = AppDataSource.getRepository(User);
   const email: string = req.body.email;
 
-  const checkEmail: User | null = await UseRepository.findOne({
-    where: {
-      email: email,
-    },
-  });
+  if (email) {
+    const checkEmail: User | null = await UseRepository.findOne({
+      where: {
+        email: email,
+      },
+    });
 
-  if (checkEmail) {
-    throw new AppError("Email already exists", 409);
+    if (checkEmail) {
+      throw new AppError("Email already exists", 409);
+    }
   }
 
   next();

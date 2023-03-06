@@ -1,15 +1,15 @@
-import CheckAdmMiddleware from "./Users/checkAdm.middleware";
-import CheckEmailMiddleware from "./Users/checkEmail.middleware";
-import CheckIdMiddleware from "./Users/checkIdUser.middleware";
-import CheckToken from "./Token/checkToken.middlewares";
-import ensureEntityData from "./EnsureData/ensureEntityData";
-import CheckNameMiddleware from "./Categoreis/checkName.middleware";
+import checkAdmMiddleware from "./users/checkAdm.middleware";
+import checkEmailMiddleware from "./users/checkEmail.middleware";
+import checkIdUserMiddleware from "./users/checkIdUser.middleware";
+import checkToken from "./token/checkToken.middlewares";
+import ensureEntityData from "./ensureData/ensureEntityData";
+import checkCategoryNameMiddleware from "./categoreis/checkName.middleware";
 
 export {
-  CheckEmailMiddleware,
+  checkEmailMiddleware,
   ensureEntityData,
-  CheckIdMiddleware,
-  CheckAdmMiddleware,
-  CheckNameMiddleware,
-  CheckToken,
+  checkIdUserMiddleware,
+  checkAdmMiddleware,
+  checkCategoryNameMiddleware,
+  checkToken,
 };

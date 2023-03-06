@@ -12,8 +12,17 @@ import {
 import {
   RealEstateSchema,
   ReturnStateSchema,
+  RealEstateReformSchema,
+  RealEStateResponse,
+  ReturnSchemaEstateGet,
 } from "./RealState/realState.schema";
 import { ReturnAddressSchema, AddressSchema } from "./Address/addrress.schema";
+
+import {
+  returnSchedule,
+  scheduleUsers,
+  scheduleUsersComplet,
+} from "./Schedules/schedules.schema";
 
 export {
   CreatUSers,
@@ -27,4 +36,10 @@ export {
   ReturnStateSchema,
   ReturnAddressSchema,
   AddressSchema,
+  RealEstateReformSchema,
+  ReturnSchemaEstateGet,
+  RealEStateResponse,
+  returnSchedule,
+  scheduleUsers,
+  scheduleUsersComplet,
 };

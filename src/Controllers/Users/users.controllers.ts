@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AppError } from "../../Err";
+import { AppError } from "../../err";
 import { IReturnUser } from "../../Interfaces";
 import {
   CreateUsersServices,
@@ -8,7 +8,7 @@ import {
   UpdateUsersService,
 } from "../../Service";
 
-const CreateUsersControllers = async (
+const createUsersControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
@@ -17,7 +17,7 @@ const CreateUsersControllers = async (
   return res.status(201).json(newUser);
 };
 
-const ListAllUsersControllers = async (
+const listAllUsersControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
@@ -26,31 +26,30 @@ const ListAllUsersControllers = async (
   return res.status(200).json(users);
 };
 
-const UpdateUserControllers = async (
+const updateUserControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
   const id: number = Number(req.params.id);
   const idUser: number = Number(req.id);
 
-  if (id !== idUser && !req.admin) {
-    throw new AppError("Sem Permisão", 401);
-  }
-
-  const user: IReturnUser = await UpdateUsersService(req.user, req.body);
+  const user: IReturnUser = await UpdateUsersService(
+    req.user,
+    req.body,
+    id,
+    idUser,
+    req.admin
+  );
 
   return res.status(200).json(user);
 };
 
-const DeleteUserControllers = async (
+const deleteUserControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const id: number = Number(req.params.id);
-  const idUser: number = Number(req.id);
-
-  if (id !== idUser && !req.admin) {
-    throw new AppError("Sem Permisão", 401);
+  if (!req.admin) {
+    throw new AppError("Insufficient permission", 403);
   }
 
   await DeleteUSerService(req.user);
@@ -59,8 +58,8 @@ const DeleteUserControllers = async (
 };
 
 export {
-  CreateUsersControllers,
-  ListAllUsersControllers,
-  UpdateUserControllers,
-  DeleteUserControllers,
+  createUsersControllers,
+  listAllUsersControllers,
+  updateUserControllers,
+  deleteUserControllers,
 };

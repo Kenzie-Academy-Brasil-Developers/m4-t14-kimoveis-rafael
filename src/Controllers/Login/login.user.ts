@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { LoginService } from "../../Service";
 
-const LoginControllers = async (
+const loginControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
@@ -10,4 +10,4 @@ const LoginControllers = async (
   return res.status(200).json({ token: token });
 };
 
-export default LoginControllers;
+export default loginControllers;

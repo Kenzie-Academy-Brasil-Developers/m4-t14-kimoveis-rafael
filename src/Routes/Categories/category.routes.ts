@@ -1,20 +1,33 @@
 import { Router } from "express";
 import {
-  CreateCategoriesControllers,
-  ListAllCategoryControllers,
+  createCategoriesControllers,
+  listAllCategoryControllers,
+  listCategoryIdControllers,
 } from "../../Controllers";
-import { CheckNameMiddleware, ensureEntityData } from "../../middlewares";
+import {
+  checkAdmMiddleware,
+  checkCategoryNameMiddleware,
+  checkToken,
+  ensureEntityData,
+} from "../../middlewares";
 import { CategoriesSchema } from "../../Schemas";
 
 const CategoryRoutes: Router = Router();
 
 CategoryRoutes.post(
   "",
+  checkToken,
   ensureEntityData(CategoriesSchema),
-  CheckNameMiddleware,
-  CreateCategoriesControllers
+  checkAdmMiddleware,
+  checkCategoryNameMiddleware,
+  createCategoriesControllers
 );
 
-CategoryRoutes.get("", ListAllCategoryControllers);
+CategoryRoutes.get("", listAllCategoryControllers);
+CategoryRoutes.get(
+  "/:id/realEstate",
+  checkCategoryNameMiddleware,
+  listCategoryIdControllers
+);
 
 export default CategoryRoutes;

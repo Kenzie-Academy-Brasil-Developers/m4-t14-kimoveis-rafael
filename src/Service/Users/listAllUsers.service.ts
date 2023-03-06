@@ -1,6 +1,6 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
-import { IReturnUser, Repo } from "../../Interfaces/Users/user.interfaces";
+import { IReturnUser, Repo } from "../../Interfaces/Users/user";
 import { ReturnUsersComplete } from "../../Schemas";
 
 const ListAllUsersService = async (): Promise<IReturnUser[]> => {
