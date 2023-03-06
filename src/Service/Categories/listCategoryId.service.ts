@@ -2,12 +2,19 @@ import { AppDataSource } from "../../data-source";
 import { Category } from "../../entities";
 import { RepoCategories } from "../../Interfaces";
 
-const listAllCategory = async (): Promise<Category[]> => {
+const listCategoryId = async (id: number) => {
   const UseRepository: RepoCategories = AppDataSource.getRepository(Category);
 
-  const categories: Category[] = await UseRepository.find();
+  const itens = await UseRepository.findOne({
+    where: {
+      id: id,
+    },
+    relations: {
+      realEstate: true,
+    },
+  });
 
-  return categories;
+  return itens;
 };
 
-export default listAllCategory;
+export default listCategoryId;

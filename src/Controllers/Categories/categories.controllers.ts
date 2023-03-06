@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { Category } from "../../entities";
 import { ICategories } from "../../Interfaces";
-import { CreateCategory, ListAllCategory } from "../../Service";
+import { CreateCategory, ListAllCategory, ListCategoryId } from "../../Service";
 
-const CreateCategoriesControllers = async (
+const createCategoriesControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
@@ -12,13 +12,26 @@ const CreateCategoriesControllers = async (
   return res.status(201).json(newCategory);
 };
 
-const ListAllCategoryControllers = async (
+const listAllCategoryControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const categories: Category[] = await ListAllCategory();
+  const categories = await ListAllCategory();
 
   return res.status(200).json(categories);
 };
 
-export { CreateCategoriesControllers, ListAllCategoryControllers };
+const listCategoryIdControllers = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const itens = await ListCategoryId(Number(req.params.id));
+
+  return res.status(200).json(itens);
+};
+
+export {
+  createCategoriesControllers,
+  listAllCategoryControllers,
+  listCategoryIdControllers,
+};

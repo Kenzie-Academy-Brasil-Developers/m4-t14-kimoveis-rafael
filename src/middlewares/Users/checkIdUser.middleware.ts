@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from "express";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
-import { AppError } from "../../Err/error";
+import { AppError } from "../../err/error";
 
-const CheckIdMiddleware = async (
+const checkIdUserMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -12,20 +12,45 @@ const CheckIdMiddleware = async (
   const UseRepository: Repository<User> = AppDataSource.getRepository(User);
 
   const id: number = Number(req.params.id);
+  const idUserToken: number = Number(req.id);
 
-  const checkId: User | null = await UseRepository.findOne({
-    where: {
-      id: id,
-    },
-  });
+  if (id) {
+    const checkId: User | null = await UseRepository.findOne({
+      where: {
+        id: id,
+      },
+      relations: {
+        schedules: true,
+      },
+    });
 
-  if (!checkId) {
-    throw new AppError("User not found!", 404);
+    if (!checkId) {
+      throw new AppError("User not found", 404);
+    }
+
+    req.user = checkId!;
+
+    next();
   }
 
-  req.user = checkId!;
+  if (idUserToken) {
+    const checkId: User | null = await UseRepository.findOne({
+      where: {
+        id: idUserToken,
+      },
+      relations: {
+        schedules: true,
+      },
+    });
 
-  next();
+    if (!checkId) {
+      throw new AppError("User not found", 404);
+    }
+
+    req.user = checkId!;
+
+    next();
+  }
 };
 
-export default CheckIdMiddleware;
+export default checkIdUserMiddleware;

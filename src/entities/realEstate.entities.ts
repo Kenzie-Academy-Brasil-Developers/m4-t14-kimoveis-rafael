@@ -3,7 +3,6 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  ManyToMany,
   ManyToOne,
   OneToMany,
   OneToOne,
@@ -18,28 +17,28 @@ import { Schedule } from "./schedulesUsers.entities";
 export class RealEstate {
   @PrimaryGeneratedColumn("increment")
   id: number;
-  @Column({ type: "boolean", default: false })
-  sold: boolean;
+  @Column({ type: "boolean", default: true })
+  sold: boolean = false;
 
-  @Column({ type: "decimal" })
-  values: number;
+  @Column({ type: "decimal", precision: 12, scale: 2 })
+  value: number | string;
 
   @Column({ type: "integer" })
   size: number;
 
-  @CreateDateColumn()
-  createdAt: Date;
+  @CreateDateColumn({ type: "date" })
+  createdAt: string;
 
-  @UpdateDateColumn()
-  updatedAt: Date;
+  @UpdateDateColumn({ type: "date" })
+  updatedAt: string;
 
-  @OneToOne(() => Address, (address) => address.raelEstate)
+  @OneToOne(() => Address)
   @JoinColumn()
   address: Address;
 
-  @ManyToOne(() => Category, (categories) => categories.realState)
+  @ManyToOne(() => Category, (categories) => categories.realEstate)
   category: Category;
 
-  @OneToMany(() => Schedule, (schedule) => schedule.realEstated)
-  schedule: Schedule[];
+  @OneToMany(() => Schedule, (schedule) => schedule.realEstate)
+  schedules: Schedule[];
 }
