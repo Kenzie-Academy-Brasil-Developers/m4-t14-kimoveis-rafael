@@ -3,7 +3,7 @@ import { Category } from "../../entities";
 import { ICategories, RepoCategories } from "../../Interfaces";
 import { ReturnCategorySchema } from "../../Schemas";
 
-const CreateCategory = async (data: Category): Promise<ICategories> => {
+const createCategory = async (data: Category): Promise<ICategories> => {
   const UseRepository: RepoCategories = AppDataSource.getRepository(Category);
 
   // const checkCategory = await UseRepository.findOne({
@@ -23,4 +23,4 @@ const CreateCategory = async (data: Category): Promise<ICategories> => {
   return ReturnCategorySchema.parse(categories);
 };
 
-export default CreateCategory;
+export default createCategory;

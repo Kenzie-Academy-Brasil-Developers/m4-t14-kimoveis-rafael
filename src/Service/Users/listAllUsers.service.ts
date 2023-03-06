@@ -3,7 +3,7 @@ import { User } from "../../entities";
 import { IReturnUser, Repo } from "../../Interfaces/Users/user";
 import { ReturnUsersComplete } from "../../Schemas";
 
-const ListAllUsersService = async (): Promise<IReturnUser[]> => {
+const listAllUsersService = async (): Promise<IReturnUser[]> => {
   const UseRepository: Repo = AppDataSource.getRepository(User);
 
   const users: User[] = await UseRepository.find();
@@ -12,4 +12,4 @@ const ListAllUsersService = async (): Promise<IReturnUser[]> => {
   return newUser;
 };
 
-export default ListAllUsersService;
+export default listAllUsersService;

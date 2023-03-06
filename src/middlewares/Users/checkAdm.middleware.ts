@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { AppError } from "../../err";
 
-const CheckAdmMiddleware = async (
+const checkAdmMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -13,4 +13,4 @@ const CheckAdmMiddleware = async (
   next();
 };
 
-export default CheckAdmMiddleware;
+export default checkAdmMiddleware;

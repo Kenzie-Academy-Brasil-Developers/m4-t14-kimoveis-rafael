@@ -4,7 +4,7 @@ import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
 import { AppError } from "../../err/error";
 
-const CheckEmailMiddleware = async (
+const checkEmailMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -27,4 +27,4 @@ const CheckEmailMiddleware = async (
   next();
 };
 
-export default CheckEmailMiddleware;
+export default checkEmailMiddleware;

@@ -4,7 +4,7 @@ import { AppError } from "../../err";
 import { IEState, RepoAdd, RepoEstate } from "../../Interfaces";
 import { RealEstateReformSchema, AddressSchema } from "../../Schemas";
 
-const CreateStateService = async (
+const createStateService = async (
   data: IEState,
   checkCategory: Category
 ): Promise<RealEstate> => {
@@ -37,4 +37,4 @@ const CreateStateService = async (
   return newRealEstate;
 };
 
-export default CreateStateService;
+export default createStateService;
