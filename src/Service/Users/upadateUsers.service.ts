@@ -1,9 +1,8 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
 import { AppError } from "../../err";
-import { IReturnUser } from "../../Interfaces";
-import { Repo } from "../../Interfaces/Users/user";
-import { ReturnUsersComplete } from "../../Schemas";
+import { IReturnUser, Repo } from "../../interfaces";
+import { ReturnUsersComplete } from "../../schemas";
 
 const updateUsersService = async (
   oldUser: User,

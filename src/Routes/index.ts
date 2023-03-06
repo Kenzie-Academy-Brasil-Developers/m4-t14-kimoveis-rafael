@@ -1,6 +1,13 @@
-import LoginRoutes from "./Login/login.routes";
-import UsersRoutes from "./Users/users.routes";
-import CategoryRoutes from "./Categories/category.routes";
-import RealEstateRoute from "./RealEstate/realState.routes";
+import LoginRoutes from "./login/login.routes";
+import UsersRoutes from "./users/users.routes";
+import CategoryRoutes from "./categories/category.routes";
+import RealEstateRoute from "./realEstate/realState.routes";
+import ScheduleRoute from "./schedules/schedules";
 
-export { UsersRoutes, LoginRoutes, CategoryRoutes, RealEstateRoute };
+export {
+  UsersRoutes,
+  LoginRoutes,
+  CategoryRoutes,
+  RealEstateRoute,
+  ScheduleRoute,
+};

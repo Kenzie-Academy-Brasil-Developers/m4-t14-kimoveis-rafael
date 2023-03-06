@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import { RealEstate } from "../../entities";
-import { IRealEstateReturn } from "../../Interfaces";
-import { CreateStateService, listAllRealEstate } from "../../Service";
+import { IRealEstateReturn } from "../../interfaces";
+import { createStateService, listAllRealEstate } from "../../service";
 
 const realEstateControllers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const newEstate: RealEstate = await CreateStateService(
+  const newEstate: RealEstate = await createStateService(
     req.body,
     req.category
   );

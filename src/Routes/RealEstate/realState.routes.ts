@@ -2,14 +2,14 @@ import { Router } from "express";
 import {
   realEstateControllers,
   realEstateListControllers,
-} from "../../Controllers";
+} from "../../controllers";
 import {
   checkAdmMiddleware,
   checkCategoryNameMiddleware,
   checkToken,
   ensureEntityData,
 } from "../../middlewares";
-import { RealEstateSchema } from "../../Schemas";
+import { RealEstateSchema } from "../../schemas";
 
 const RealEstateRoute: Router = Router();
 

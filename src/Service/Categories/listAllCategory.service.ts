@@ -1,6 +1,6 @@
 import { AppDataSource } from "../../data-source";
 import { Category } from "../../entities";
-import { RepoCategories } from "../../Interfaces";
+import { RepoCategories } from "../../interfaces";
 
 const listAllCategory = async (): Promise<Category[]> => {
   const UseRepository: RepoCategories = AppDataSource.getRepository(Category);

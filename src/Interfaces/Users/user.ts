@@ -1,7 +1,7 @@
 import { DeepPartial, Repository } from "typeorm";
 import { z } from "zod";
 import { User } from "../../entities";
-import { CreatUSers, ReturnUsers } from "../../Schemas";
+import { CreatUSers, ReturnUsers } from "../../schemas";
 
 type ICreateUser = z.infer<typeof CreatUSers>;
 type IReturnUser = z.infer<typeof ReturnUsers>;

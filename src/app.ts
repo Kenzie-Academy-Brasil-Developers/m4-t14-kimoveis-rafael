@@ -6,8 +6,8 @@ import {
   LoginRoutes,
   RealEstateRoute,
   UsersRoutes,
-} from "./Routes";
-import ScheduleRoute from "./Routes/schedules/schedules.service";
+} from "./routes";
+import { ScheduleRoute } from "./routes";
 
 const app: Application = express();
 

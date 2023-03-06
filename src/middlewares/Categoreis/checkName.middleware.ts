@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { AppDataSource } from "../../data-source";
 import { Category } from "../../entities";
 import { AppError } from "../../err/error";
-import { RepoCategories } from "../../Interfaces";
+import { RepoCategories } from "../../interfaces";
 
 const checkCategoryNameMiddleware = async (
   req: Request,

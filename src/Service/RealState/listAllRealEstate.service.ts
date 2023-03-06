@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
 import { RealEstate } from "../../entities";
-import { IRealEstateReturn, RepoEstate } from "../../Interfaces";
-import { ReturnSchemaEstateGet } from "../../Schemas";
+import { IRealEstateReturn, RepoEstate } from "../../interfaces";
+import { ReturnSchemaEstateGet } from "../../schemas";
 
 const listAllRealEstate = async (): Promise<IRealEstateReturn[]> => {
   const UseRepository: RepoEstate = AppDataSource.getRepository(RealEstate);

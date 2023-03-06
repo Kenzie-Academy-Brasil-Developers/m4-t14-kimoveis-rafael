@@ -1,4 +1,3 @@
-import { type } from "os";
 import { Repository } from "typeorm";
 import { z } from "zod";
 import { RealEstate } from "../../entities";
@@ -8,7 +7,7 @@ import {
   RealEstateSchema,
   ReturnStateSchema,
   ReturnSchemaEstateGet,
-} from "../../Schemas";
+} from "../../schemas";
 
 type IRealEstateSchema = z.infer<typeof RealEstateReformSchema>;
 type IReturnEstateSchema = z.infer<typeof ReturnStateSchema>;

@@ -1,6 +1,6 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
-import { ILogin, Repo } from "../../Interfaces";
+import { ILogin, Repo } from "../../interfaces";
 import { compare } from "bcryptjs";
 import { AppError } from "../../err/error";
 import jwt from "jsonwebtoken";

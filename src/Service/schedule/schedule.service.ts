@@ -1,8 +1,8 @@
 import { AppDataSource } from "../../data-source";
 import { RealEstate, Schedule, User } from "../../entities";
 import { AppError } from "../../err";
-import { ISchedule, Repo, RepoEstate, RepoSche } from "../../Interfaces";
-import { scheduleUsersComplet } from "../../Schemas";
+import { ISchedule, Repo, RepoEstate, RepoSche } from "../../interfaces";
+import { scheduleUsersComplet } from "../../schemas";
 
 const scheduleCreate = async (data: ISchedule, user: User): Promise<string> => {
   const repoSche: RepoSche = AppDataSource.getRepository(Schedule);

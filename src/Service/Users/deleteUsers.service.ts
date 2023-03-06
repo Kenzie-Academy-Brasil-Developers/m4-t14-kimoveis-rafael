@@ -1,11 +1,11 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
-import { Repo } from "../../Interfaces";
+import { Repo } from "../../interfaces";
 
-const DeleteUSerService = async (user: User): Promise<void> => {
+const deleteUSerService = async (user: User): Promise<void> => {
   const UseRepository: Repo = AppDataSource.getRepository(User);
 
   await UseRepository.softRemove(user!);
 };
 
-export default DeleteUSerService;
+export default deleteUSerService;

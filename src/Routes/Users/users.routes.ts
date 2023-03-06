@@ -4,7 +4,7 @@ import {
   deleteUserControllers,
   listAllUsersControllers,
   updateUserControllers,
-} from "../../Controllers";
+} from "../../controllers";
 import {
   checkAdmMiddleware,
   checkEmailMiddleware,
@@ -12,7 +12,7 @@ import {
   checkToken,
   ensureEntityData,
 } from "../../middlewares";
-import { CreatUSers, UpdateUsers } from "../../Schemas";
+import { CreatUSers, UpdateUsers } from "../../schemas";
 
 const UsersRoutes: Router = Router();
 

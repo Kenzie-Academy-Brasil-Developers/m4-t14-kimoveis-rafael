@@ -1,10 +1,10 @@
-import { ICreateUser, IReturnUser, IUpdateUser, Repo } from "./Users/user";
+import { ICreateUser, IReturnUser, IUpdateUser, Repo } from "./users/user";
 import {
   ICategories,
   IReturnCategories,
   RepoCategories,
-} from "./Categories/categories";
-import ILogin from "./Login/login";
+} from "./categories/categories";
+import ILogin from "./login/login";
 import {
   IRealEstateSchema,
   IReturnEstateSchema,
@@ -12,13 +12,13 @@ import {
   IEState,
   IRealEstateResponse,
   IRealEstateReturn,
-} from "./RealState/realState";
+} from "./realState/realState";
 import {
   IReturnAddressSchema,
   IAddressSchema,
   RepoAdd,
-} from "./Address/address";
-import { ISchedule, IReturnSchedule, RepoSche } from "./Schedules/schedules.";
+} from "./address/address";
+import { ISchedule, IReturnSchedule, RepoSche } from "./schedules/schedules.";
 
 export {
   ICreateUser,

@@ -1,6 +1,4 @@
-import { Repository } from "typeorm";
 import { z } from "zod";
-import { Address } from "../../entities";
 
 const AddressSchema = z.object({
   street: z.string().max(45),

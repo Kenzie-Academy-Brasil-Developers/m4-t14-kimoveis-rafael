@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
-import { Schedule } from "../../entities";
-import { RepoSche } from "../../Interfaces";
-import { listSchedule, scheduleCreate } from "../../Service";
+import { listSchedule, scheduleCreate } from "../../service";
 
 const createSchedule = async (
   req: Request,

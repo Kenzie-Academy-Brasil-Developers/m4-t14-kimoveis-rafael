@@ -1,8 +1,7 @@
-import { type } from "os";
 import { Repository } from "typeorm";
 import { z } from "zod";
 import { Address } from "../../entities";
-import { ReturnAddressSchema, AddressSchema } from "../../Schemas";
+import { ReturnAddressSchema, AddressSchema } from "../../schemas";
 
 type IReturnAddressSchema = z.infer<typeof ReturnAddressSchema>;
 type IAddressSchema = z.infer<typeof AddressSchema>;

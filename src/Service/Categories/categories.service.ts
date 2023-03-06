@@ -1,26 +1,18 @@
 import { AppDataSource } from "../../data-source";
 import { Category } from "../../entities";
-import { ICategories, RepoCategories } from "../../Interfaces";
-import { ReturnCategorySchema } from "../../Schemas";
+import { ICategories, RepoCategories } from "../../interfaces";
+import { ReturnCategorySchema } from "../../schemas";
 
-const createCategory = async (data: Category): Promise<ICategories> => {
+const createCategory = async (data: Category) => {
   const UseRepository: RepoCategories = AppDataSource.getRepository(Category);
-
-  // const checkCategory = await UseRepository.findOne({
-  //   where: {
-  //     name: data.name,
-  //   },
-  // });
-
-  // if (checkCategory) {
-  //   throw new AppError("Category already exists", 409);
-  // }
 
   const categories: ICategories = UseRepository.create(data);
 
   await UseRepository.save(categories);
 
-  return ReturnCategorySchema.parse(categories);
+  const category = ReturnCategorySchema.parse(categories);
+
+  return category;
 };
 
 export default createCategory;

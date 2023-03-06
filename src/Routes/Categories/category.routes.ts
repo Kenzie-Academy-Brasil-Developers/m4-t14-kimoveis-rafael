@@ -3,14 +3,14 @@ import {
   createCategoriesControllers,
   listAllCategoryControllers,
   listCategoryIdControllers,
-} from "../../Controllers";
+} from "../../controllers";
 import {
   checkAdmMiddleware,
   checkCategoryNameMiddleware,
   checkToken,
   ensureEntityData,
 } from "../../middlewares";
-import { CategoriesSchema } from "../../Schemas";
+import { CategoriesSchema } from "../../schemas";
 
 const CategoryRoutes: Router = Router();
 

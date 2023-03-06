@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { AppError } from "../../err";
 import jwt from "jsonwebtoken";
-import { AppDataSource } from "../../data-source";
 
 const checkToken = async (
   req: Request,

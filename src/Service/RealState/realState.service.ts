@@ -1,8 +1,8 @@
 import { AppDataSource } from "../../data-source";
 import { Address, Category, RealEstate } from "../../entities";
 import { AppError } from "../../err";
-import { IEState, RepoAdd, RepoEstate } from "../../Interfaces";
-import { RealEstateReformSchema, AddressSchema } from "../../Schemas";
+import { IEState, RepoAdd, RepoEstate } from "../../interfaces";
+import { RealEstateReformSchema, AddressSchema } from "../../schemas";
 
 const createStateService = async (
   data: IEState,

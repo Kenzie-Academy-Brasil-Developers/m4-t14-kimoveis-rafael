@@ -4,25 +4,25 @@ import {
   ReturnUsersComplete,
   UpdateUsers,
   LoginUsers,
-} from "./Users/user.schema";
+} from "./users/user.schema";
 import {
   CategoriesSchema,
   ReturnCategorySchema,
-} from "./Categories/categories.schema";
+} from "./categories/categories.schema";
 import {
   RealEstateSchema,
   ReturnStateSchema,
   RealEstateReformSchema,
   RealEStateResponse,
   ReturnSchemaEstateGet,
-} from "./RealState/realState.schema";
-import { ReturnAddressSchema, AddressSchema } from "./Address/addrress.schema";
+} from "./realState/realState.schema";
+import { ReturnAddressSchema, AddressSchema } from "./address/addrress.schema";
 
 import {
   returnSchedule,
   scheduleUsers,
   scheduleUsersComplet,
-} from "./Schedules/schedules.schema";
+} from "./schedules/schedules.schema";
 
 export {
   CreatUSers,

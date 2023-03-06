@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { createSchedule, listScheduleControllers } from "../../Controllers";
+import { createSchedule, listScheduleControllers } from "../../controllers";
 import {
   checkAdmMiddleware,
   checkIdUserMiddleware,
   checkToken,
   ensureEntityData,
 } from "../../middlewares";
-import { scheduleUsers } from "../../Schemas";
+import { scheduleUsers } from "../../schemas";
 
 const ScheduleRoute: Router = Router();
 

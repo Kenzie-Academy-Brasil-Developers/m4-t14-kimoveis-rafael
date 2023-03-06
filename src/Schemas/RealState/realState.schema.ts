@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { AddressSchema, ReturnAddressSchema } from "../Address/addrress.schema";
-import { CategoriesSchema } from "../Categories/categories.schema";
+import { AddressSchema, ReturnAddressSchema } from "../address/addrress.schema";
+import { CategoriesSchema } from "../categories/categories.schema";
 
 const RealEstateSchema = z.object({
   value: z.string().or(z.number()),

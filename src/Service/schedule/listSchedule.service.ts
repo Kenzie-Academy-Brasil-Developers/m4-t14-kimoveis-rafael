@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
 import { RealEstate, User } from "../../entities";
 import { AppError } from "../../err";
-import { Repo, RepoEstate } from "../../Interfaces";
+import { Repo, RepoEstate } from "../../interfaces";
 
 const listSchedule = async (id: number): Promise<RealEstate> => {
   const repoEstate: RepoEstate = AppDataSource.getRepository(RealEstate);
